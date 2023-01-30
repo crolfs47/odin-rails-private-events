@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  location: MyString
+  date: 2023-01-30
+  start_time: 2023-01-30 13:36:08
+  end_time: 2023-01-30 13:36:08
+
+two:
+  title: MyString
+  location: MyString
+  date: 2023-01-30
+  start_time: 2023-01-30 13:36:08
+  end_time: 2023-01-30 13:36:08

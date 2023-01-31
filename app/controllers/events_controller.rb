@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new(post_params)
+    @event = current_user.created_events.build
   end
 
   def create

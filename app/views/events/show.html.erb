@@ -10,3 +10,10 @@
 
 <h2>About This Event:</h2>
 <div><%= @event.description %></div>
+
+
+<% if current_user %>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= button_to "Login", user_session_path, method: :get %>
+<% end %>

@@ -12,8 +12,8 @@
 <div><%= @event.description %></div>
 
 <%= form_with model: @rsvp, url: rsvps_path do |form| %>
-  <%= form.text_field :attendee_id, value: current_user.id %>
-  <%= form.text_field :attended_event_id, value: @event.id %>
+  <%= form.hidden_field :attendee_id, value: current_user.id %>
+  <%= form.hidden_field :attended_event_id, value: @event.id %>
 
   <%= form.submit "Attend This Event" %>
 <% end %>

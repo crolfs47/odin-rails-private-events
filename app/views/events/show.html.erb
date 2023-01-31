@@ -1,0 +1,12 @@
+<h1><%= @event.title %></h1>
+
+<div>Hosted by: <%= @event.creator.email %></div>
+
+<h2>When & Where:</h2>
+<div>Date: <%= @event.date %></div>
+<div>Start: <%= @event.start_time %></div>
+<div>End: <%= @event.end_time %></div>
+<div>Location: <%= @event.location %></div>
+
+<h2>About This Event:</h2>
+<div><%= @event.description %></div>

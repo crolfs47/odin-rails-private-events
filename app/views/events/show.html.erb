@@ -11,6 +11,12 @@
 <h2>About This Event:</h2>
 <div><%= @event.description %></div>
 
+<%= form_with model: @rsvp, url: rsvps_path do |form| %>
+  <%= form.text_field :attendee_id, value: current_user.id %>
+  <%= form.text_field :attended_event_id, value: @event.id %>
+
+  <%= form.submit "Attend This Event" %>
+<% end %>
 
 <% if current_user %>
   <%= button_to "Logout", destroy_user_session_path, method: :delete %>

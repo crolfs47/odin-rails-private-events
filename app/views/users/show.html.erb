@@ -1,1 +1,11 @@
-<h1>User's Events</h1>
+<h1> <%= @user.email %>'s Events</h1>
+<div>
+  <% @user_events.each do |event| %>
+    <p><%= event.title %></p>
+    <div>Date: <%= event.date %></div>
+    <div>Start: <%= event.start_time %></div>
+    <div>End: <%= event.end_time %></div>
+    <div>Location: <%= event.location %></div>
+    <div>Description: <%= event.description %></div>
+  <% end %>
+</div>

@@ -1,9 +1,19 @@
 <h1> <%= @user.name %>'s Profile</h1>
 
 <h2> <%= @user.name %>'s Hosted Events</h2>
+<h3> Upcoming Events</h3>
 <div>
   <ul>
-    <% @user_events.each do |event| %>
+    <% @user_events.where(date: (Date.today)..).order(date: :asc).each do |event| %>
+      <li><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></li>
+    <% end %>
+  </ul>
+</div>
+
+<h3> Past Events</h3>
+<div>
+  <ul>
+    <% @user_events.where(date: ..(Date.today)).order(date: :desc).each do |event| %>
       <li><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></li>
     <% end %>
   </ul>
@@ -14,7 +24,7 @@
 <h3> Upcoming Events</h3>
 <div>
   <ul>
-    <% @user.attended_events.each do |event| %>
+    <% @user.attended_events.where(date: (Date.today)..).order(date: :asc).each do |event| %>
       <li><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></li>
     <% end %>
   </ul>
@@ -24,7 +34,7 @@
 <h3> Past Events</h3>
 <div>
   <ul>
-    <% @user.attended_events.each do |event| %>
+    <% @user.attended_events.where(date: ..(Date.today)).order(date: :desc).each do |event| %>
       <li><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></li>
     <% end %>
   </ul>

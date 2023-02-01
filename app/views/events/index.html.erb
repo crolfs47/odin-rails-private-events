@@ -1,4 +1,11 @@
-<h1>Events</h1>
+<h1>All Events</h1>
+
+<ul>
+  <% @events.each do |event| %>
+  <li><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></li>
+  <% end %>
+</ul>
+
 
 <% if current_user %>
   <%= button_to "Logout", destroy_user_session_path, method: :delete %>

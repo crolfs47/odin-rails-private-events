@@ -11,6 +11,16 @@
 <h2>About This Event:</h2>
 <div><%= @event.description %></div>
 
+<h2>Who's Attending:</h2>
+<ul>
+  <% @event.rsvps.each do |rsvp| %>
+    <li>
+      Name: <%= rsvp.attendee.name %>, Email: <%= rsvp.attendee.email %>
+    </li>
+  <% end %>
+</ul>
+
+
 <%= form_with model: @rsvp, url: rsvps_path do |form| %>
   <%= form.hidden_field :attendee_id, value: current_user.id %>
   <%= form.hidden_field :attended_event_id, value: @event.id %>

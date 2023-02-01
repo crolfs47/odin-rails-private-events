@@ -14,17 +14,18 @@
 <h3> Upcoming Events</h3>
 <div>
   <ul>
-    <% @user.rsvps.each do |rsvp| %>
-      <li><%= link_to rsvp.attended_event.title, rsvp.attended_event %> - <%= rsvp.attended_event.date %>, <%= rsvp.attended_event.location %></li>
+    <% @user.attended_events.each do |event| %>
+      <li><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></li>
     <% end %>
   </ul>
 </div>
 
+
 <h3> Past Events</h3>
 <div>
   <ul>
-    <% @user.rsvps.each do |rsvp| %>
-      <li><%= link_to rsvp.attended_event.title, rsvp.attended_event %> - <%= rsvp.attended_event.date %>, <%= rsvp.attended_event.location %></li>
+    <% @user.attended_events.each do |event| %>
+      <li><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></li>
     <% end %>
   </ul>
 </div>

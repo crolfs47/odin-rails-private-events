@@ -72,3 +72,6 @@ group :test do
 end
 
 gem 'devise'
+
+# CR add Bulma for CSS framework
+gem "bulma-rails", "~> 0.9.4"

@@ -6,7 +6,7 @@
   <div class="card-content">
     <div class="content">
       <b>Host: </b><%= event.creator.name %><br>
-      <b>Date: </b><%= event.date %><br>
+      <b>Date: </b><%= event.date.strftime('%B %d, %Y') %><br>
       <b>Location: </b><%= event.location %>
     </div>
   </div>

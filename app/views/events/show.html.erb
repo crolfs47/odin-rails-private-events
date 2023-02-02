@@ -1,35 +1,39 @@
-<h1><%= @event.title %></h1>
+<div class="section">
+  <div class="container">
+    <h1 class="title is-3 has-text-success-dark"><%= @event.title %></h1>
+    
+      <div class="block">
+        <div>Hosted by: <%= @event.creator.name %></div>
+      </div>
+      <div class="block">
+        <h2 class="is-size-5 has-text-success">When & Where:</h2>
+        <div>Date: <%= @event.date %></div>
+        <div>Start: <%= @event.start_time %></div>
+        <div>End: <%= @event.end_time %></div>
+        <div>Location: <%= @event.location %></div>
+      </div>
+      <div class="block">
+        <h2 class="is-size-5 has-text-success">About This Event:</h2>
+        <div><%= @event.description %></div>
+      </div>
+      <div class="block">
+        <h2 class="is-size-5 has-text-success">Who's Attending:</h2>
+        <div>
+          <% @event.rsvps.each do |rsvp| %>
+            <li>
+              <%= rsvp.attendee.name %>
+            </li>
+          <% end %>
+        </div>
+      </div>
+      <div class="block">
+        <%= form_with model: @rsvp, url: rsvps_path do |form| %>
+          <%= form.hidden_field :attendee_id, value: current_user.id %>
+          <%= form.hidden_field :attended_event_id, value: @event.id %>
+          <%= form.submit "Attend This Event", class: "button is-success is-outlined" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<div>Hosted by: <%= @event.creator.email %></div>
 
-<h2>When & Where:</h2>
-<div>Date: <%= @event.date %></div>
-<div>Start: <%= @event.start_time %></div>
-<div>End: <%= @event.end_time %></div>
-<div>Location: <%= @event.location %></div>
-
-<h2>About This Event:</h2>
-<div><%= @event.description %></div>
-
-<h2>Who's Attending:</h2>
-<ul>
-  <% @event.rsvps.each do |rsvp| %>
-    <li>
-      Name: <%= rsvp.attendee.name %>, Email: <%= rsvp.attendee.email %>
-    </li>
-  <% end %>
-</ul>
-
-
-<%= form_with model: @rsvp, url: rsvps_path do |form| %>
-  <%= form.hidden_field :attendee_id, value: current_user.id %>
-  <%= form.hidden_field :attended_event_id, value: @event.id %>
-
-  <%= form.submit "Attend This Event" %>
-<% end %>
-
-<% if current_user %>
-  <%= button_to "Logout", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= button_to "Login", user_session_path, method: :get %>
-<% end %>

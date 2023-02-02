@@ -3,14 +3,14 @@
     <h1 class="title is-3 has-text-success-dark"><%= @event.title %></h1>
     
       <div class="block">
-        <div>Hosted by: <%= @event.creator.name %></div>
+        <div><b>Hosted by: </b><%= @event.creator.name %></div>
       </div>
       <div class="block">
         <h2 class="is-size-5 has-text-success has-text-weight-medium" >When & Where:</h2>
-        <div>Date: <%= @event.date.strftime('%B %d, %Y') %></div>
-        <div>Start: <%= @event.start_time.strftime('%I:%M:%S %p') %></div>
-        <div>End: <%= @event.end_time.strftime('%I:%M:%S %p')  %></div>
-        <div>Location: <%= @event.location %></div>
+        <div><b>Date: </b><%= @event.date.strftime('%B %d, %Y') %></div>
+        <div><b>Start: </b><%= @event.start_time.strftime('%I:%M:%S %p') %></div>
+        <div><b>End: </b><%= @event.end_time.strftime('%I:%M:%S %p')  %></div>
+        <div><b>Location: </b><%= @event.location %></div>
       </div>
       <div class="block">
         <h2 class="is-size-5 has-text-success has-text-weight-medium">About This Event:</h2>

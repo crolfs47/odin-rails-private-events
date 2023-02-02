@@ -16,7 +16,7 @@
       <div class="block">
         <h3 class="title is-5 has-text-success"> Past Events</h3>
         <div>
-          <% @user_events.where(date: ..(Date.today)).order(date: :desc).each do |event| %>
+          <% @user_events.where(date: ..(Date.yesterday)).order(date: :desc).each do |event| %>
             <div class="box"><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></div>
           <% end %>
         </div>
@@ -37,7 +37,7 @@
       <div class="block">
         <h3 class="title is-5 has-text-success"> Past Events</h3>
         <div>
-          <% @user.attended_events.where(date: ..(Date.today)).order(date: :desc).each do |event| %>
+          <% @user.attended_events.where(date: ..(Date.yesterday)).order(date: :desc).each do |event| %>
             <div class="box"><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></div>
           <% end %>
         </div>

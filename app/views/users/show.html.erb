@@ -7,17 +7,17 @@
       <h2 class="title is-5 has-text-success"> <%= @user.name %>'s Hosted Events</h2>
       <div class="block">
         <h3 class="title is-6 has-text-success"> Upcoming Events</h3>
-        <div>
+        <div class="card-container">
           <% @user_events.where(date: (Date.today)..).order(date: :asc).each do |event| %>
-            <div class="box"><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></div>
+            <%= render "events/card", event: event %>
           <% end %>
         </div>
       </div>
       <div class="block">
         <h3 class="title is-6 has-text-success"> Past Events</h3>
-        <div>
+        <div class="card-container">
           <% @user_events.where(date: ..(Date.yesterday)).order(date: :desc).each do |event| %>
-            <div class="box"><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></div>
+            <%= render "events/card", event: event %>
           <% end %>
         </div>
       </div>
@@ -28,17 +28,17 @@
       <h2 class="title is-5 has-text-success"> <%= @user.name %>'s Attended Events</h2>
       <div class="block">
         <h3 class="title is-6 has-text-success"> Upcoming Events</h3>
-        <div>
+        <div class="card-container">
           <% @user.attended_events.where(date: (Date.today)..).order(date: :asc).each do |event| %>
-            <div class="box"><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></div>
+            <%= render "events/card", event: event %>
           <% end %>
         </div>
       </div>
       <div class="block">
         <h3 class="title is-6 has-text-success"> Past Events</h3>
-        <div>
+        <div class="card-container">
           <% @user.attended_events.where(date: ..(Date.yesterday)).order(date: :desc).each do |event| %>
-            <div class="box"><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></div>
+            <%= render "events/card", event: event %>
           <% end %>
         </div>
       </div>

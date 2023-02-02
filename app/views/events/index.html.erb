@@ -1,23 +1,22 @@
-<h1 class="title is-2">All Events</h1>
+<div class="section">
+  <div class="container">
+    <h1 class="title is-3 has-text-success">All Events</h1>
+  </div>
+  <div class="section">
+    <h2 class="title is-4 has-text-success">Upcoming Events</h2>
+    <div>
+      <% @events.upcoming.each do |event| %>
+        <div class="box"><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="section">
+    <h2 class="title is-4 has-text-success">Past Events</h2>
+    <div>
+      <% @events.past.each do |event| %>
+        <div class="box"><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<h2>Upcoming Events</h2>
-<ul>
-  <% @events.upcoming.each do |event| %>
-  <li><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></li>
-  <% end %>
-</ul>
-
-<h2>Past Events</h2>
-<ul>
-  <% @events.past.each do |event| %>
-  <li><%= link_to event.title, event %> - <%= event.date %>, <%= event.location %></li>
-  <% end %>
-</ul>
-
-
-
-<% if current_user %>
-  <%= button_to "Logout", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= button_to "Login", user_session_path, method: :get %>
-<% end %>
